@@ -11,11 +11,12 @@ export class Product {
     name: string;
     
     @Column({ type: "real"})
-    weight: number;
+    measurement: number;
   
     @Column({ type: 'enum', enum: ProductType })
-    status: ProductType;
+    type: ProductType;
 
-    @CreateDateColumn({ type: 'timestamp', precision: 3 })
+    
+    @CreateDateColumn({ type: 'timestamp', precision: 3 ,default: () => "CURRENT_TIMESTAMP(6)" })
     createdAt: Date;
 }
